@@ -1,16 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import styles from "./page.module.css";
 
 import Button from '@mui/material/Button';
 
-
 import { useForm, FormProvider, useFormContext } from 'react-hook-form'
 import { ErrorMessage } from "@hookform/error-message"
-import { AutoCompleteInput } from './autoCompleteInput';
-import { InputText } from './inputText';
-import { CellphoneInput } from './inputCellphone';
+import { AutoCompleteInput } from '../components/autoCompleteInput';
+import { InputText } from '../components/inputText';
+import { CellphoneInput } from '../components/inputCellphone';
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";

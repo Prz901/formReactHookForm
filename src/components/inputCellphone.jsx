@@ -1,8 +1,10 @@
 import * as React from "react";
 import { IMaskInput } from "react-imask";
 import Input from "@mui/material/Input";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
 
-import styles from "./page.module.css";
+import styles from "../app/page.module.css";
 import { useFormContext } from "react-hook-form";
 
 const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
@@ -25,12 +27,15 @@ export function CellphoneInput({ registerField }) {
   const { register } = useFormContext();
 
   return (
-    <Input
-      name="telefone"
-      id="formatted-text-mask-input"
-      inputComponent={TextMaskCustom}
-      className={styles.inputs}
-      {...register(registerField)}
-    />
+    <FormControl style={{ width: "31%" }}>
+      <InputLabel htmlFor={registerField}>Telefone</InputLabel>
+      <Input
+        name={registerField}
+        id="formatted-text-mask-input"
+        inputComponent={TextMaskCustom}
+        style={{ width: "100%" }}
+        {...register(registerField)}
+      />
+    </FormControl>
   );
 }

@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import { useFormContext } from "react-hook-form";
 
-import styles from "./page.module.css";
+import styles from "../app/page.module.css";
 
 export function InputText({ placeholder, registerField, errors }) {
   const { register } = useFormContext();
