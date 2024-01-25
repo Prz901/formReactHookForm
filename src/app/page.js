@@ -13,7 +13,6 @@ import { CellphoneInput } from '../components/inputCellphone';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
-
 const validationSchema = z.object({
   telefone: z.string().min(11, { message: 'Telefone é obrigatorio' }),
   email: z.string().min(1, { message: "Email is required" }).email({

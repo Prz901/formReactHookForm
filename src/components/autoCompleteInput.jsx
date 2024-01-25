@@ -32,6 +32,7 @@ export function AutoCompleteInput({ registerField }) {
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState([]);
   const loading = open && options.length === 0;
+  const [inputValue, setInputValue] = useState(undefined);
 
   useEffect(() => {
     let active = true;
@@ -42,8 +43,7 @@ export function AutoCompleteInput({ registerField }) {
 
     (async () => {
       await sleep(1e3);
-
-      if (active) {
+      if (active && inputValue) {
         setOptions([...persons]);
       }
     })();
@@ -51,7 +51,7 @@ export function AutoCompleteInput({ registerField }) {
     return () => {
       active = false;
     };
-  }, [loading]);
+  }, [loading, inputValue]);
 
   useEffect(() => {
     if (!open) {
@@ -80,6 +80,9 @@ export function AutoCompleteInput({ registerField }) {
           loading={loading}
           onChange={(_, value) => {
             setValue(registerField, value);
+          }}
+          onInputChange={(event, newInputValue) => {
+            setInputValue(newInputValue);
           }}
           renderInput={(params) => (
             <TextField
